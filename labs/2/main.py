@@ -116,8 +116,8 @@ class Task:
 # Creates the main Task object which handles processing of a given RGB tuple or Hex color string
 # noinspection PyTypeChecker
 async def main():
-    task = asyncio.create_task(task_master())
-    await task
+    await asyncio.create_task(task_master())
+
 
 if __name__ == '__main__':
     asyncio.run(main())
