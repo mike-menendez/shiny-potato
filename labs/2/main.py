@@ -100,7 +100,27 @@ class Task:
     @staticmethod
     def task4(self):
     	dic = {10:"A", 11:"B", 12:"C", 13:"D", 14:"E", 15:"F"}
-    	print("here")
+    	hex0 = int(self.red/16)
+    	hex1 = self.red - (hex0*16)
+    	hex2 = int(self.green/16)
+    	hex3 = self.green - (hex2*16)
+    	hex4 = int(self.blue/16)
+    	hex5 = self.blue - (hex4*16)
+
+    	if(hex0 > 9):
+    		hex0 = dic.get(hex0)
+    	if(hex1 > 9):
+    		hex1 = dic.get(hex1)
+    	if(hex2 > 9):
+    		hex2 = dic.get(hex2)
+    	if(hex3 > 9):
+    		hex3 = dic.get(hex3)
+    	if(hex4 > 9):
+    		hex4 = dic.get(hex4)
+    	if(hex5 > 9):
+    		hex5 = dic.get(hex5)
+    		
+    	print("#",hex0,hex1,hex2,hex3,hex4,hex5,sep="")
 
     # Given any RGB tuple, can determine the hue of the tuple whether it be a primary or secondary color
     @staticmethod
