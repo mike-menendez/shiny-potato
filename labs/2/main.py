@@ -99,7 +99,8 @@ class Task:
     # Converts RGB tuple to hex
     @staticmethod
     def task4(self):
-        print()
+    	dic = {10:"A", 11:"B", 12:"C", 13:"D", 14:"E", 15:"F"}
+    	print("here")
 
     # Given any RGB tuple, can determine the hue of the tuple whether it be a primary or secondary color
     @staticmethod
@@ -134,7 +135,8 @@ class Task:
             self.task3(self)
 
         elif self.task == 4:
-            self.task4(self)
+        	self.rgb_setup(self)
+        	self.task4(self)
 
         elif self.task == 5:
             self.task5(self)
