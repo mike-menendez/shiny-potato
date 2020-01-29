@@ -64,7 +64,36 @@ class Task:
     # Converts hex string to RGB tuple
     @staticmethod
     def task3(self):
-        print()
+    	dic = {"A":10, "B":11, "C":12, "D":13, "E":14, "F":15}
+    	if(self.hex[0].isnumeric() != True):
+    		hex0 = dic.get(self.hex[0])
+    	else:
+    		hex0 = self.hex[0]
+    	if(self.hex[1].isnumeric() != True):
+    		hex1 = dic.get(self.hex[1])
+    	else:
+    		hex1 = self.hex[1]
+    	if(self.hex[2].isnumeric() != True):
+    		hex2 = dic.get(self.hex[2])
+    	else:
+    		hex2 = self.hex[2]
+    	if(self.hex[3].isnumeric() != True):
+    		hex3 = dic.get(self.hex[3])
+    	else:
+    		hex3 = self.hex[3]
+    	if(self.hex[4].isnumeric() != True):
+    		hex4 = dic.get(self.hex[4])
+    	else:
+    		hex4 = self.hex[4]
+    	if(self.hex[5].isnumeric() != True):
+    		hex5 = dic.get(self.hex[5])
+    	else:
+    		hex5 = self.hex[5]
+    	tup1 = (int(hex0) * 16)+(int(hex1))
+    	tup2 = (int(hex2) * 16)+(int(hex3))
+    	tup3 = (int(hex4) * 16)+(int(hex5))
+    	rgb = (tup1,tup2,tup3)
+    	print(rgb)
 
     # Fulfills task 4 of the assignment
     # Converts RGB tuple to hex
