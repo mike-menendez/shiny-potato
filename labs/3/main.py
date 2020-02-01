@@ -12,6 +12,10 @@ def task2(cd):
     print("The blue channel of magenta has a value of:", cd.get("magenta")[2])
     print("The green channel of yellow has a value of:", cd.get("yellow")[1])
     print("The red channel of cyan has a value of:", cd.get("cyan")[0])
+    print("The RGB tuples of any colors in color_dictionary whose second letter is 'e' are as follows.")
+    for color in color_dictionary:
+    	if color[1] == 'e':
+    		print(color_dictionary[color])
 
 def task3():
     tineye_sample = {
