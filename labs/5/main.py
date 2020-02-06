@@ -12,11 +12,10 @@ def main():
 
     d = np.array(d)
     d = d.astype(np.uint8)
-
+    print(d)
     mona = Image.fromarray(d)
 
     mona.show(title="Mona")
-
 
 if __name__ == "__main__":
     main()
