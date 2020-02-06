@@ -1,0 +1,11 @@
+Task 1:
+    Everything worked out fine with the vEnv.
+
+Task 2:
+    numpy, matplotlib, Pillow installed
+
+Task 3:
+    Output of the image:
+
+Task 4:
+    venv deactived
