@@ -6,7 +6,6 @@ import numpy as np
 
 
 def main():
-    # mona = Image.open("mona.dat", "1")
     d = []
     f = open(file="mona.dat", mode="r") #read in from file
     temp = f.readlines()
