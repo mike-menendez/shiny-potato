@@ -5,7 +5,7 @@ import os
 import time
 
 
-async def task_master():
+def task_master():
     Task()
 
 
@@ -23,34 +23,32 @@ class Task:
         time.sleep(.4)
 
     @staticmethod
-    async def negate(self):
+    def negate(self):
         self.img = PIL.ImageOps.invert(self.img)
 
     @staticmethod
-    async def img_init(self):
+    def imgInit(self):
         self.img = PIL.Image.open(self.path)
         return
 
     # Fulfills task1 of the assignment
     # Creates double negative
     @staticmethod
-    async def task1(self):
+    def task1(self):
         # Creating coroutine tasks for double inversion
-        inv1 = asyncio.create_task(self.negate(self))
-        inv2 = asyncio.create_task(self.negate(self))
 
-        print("Inverting image in background thread for the first time...")
-        await inv1
+        print("Inverting image for the first time...")
+        inv1 = self.negate(self)
         print("Finished first inversion!")
-        print("Starting second inversion in a background thread...")
-        await inv2
+        print("Starting second inversion...")
+        inv2 = self.negate(self)
         print("Finished second inversion!")
         print("Now displaying image...")
         self.img.open()
 
     # Fulfills task 2 of the assignment
     @staticmethod
-    async def task2(self):
+    def task2(self):
         scalar = int(input().strip())
         print("Creating filter in background thread...")
         # Create generic masking based off of the image dimensions
@@ -60,7 +58,7 @@ class Task:
 
     # Fulfills task 3 of the assignment
     @staticmethod
-    async def task3(self):
+    def task3(self):
         print("We completed Mona, no need to work on it")
 
     # Init of the Task object and calls helper functions to handle the specified task
@@ -79,15 +77,15 @@ class Task:
                 print("Invalid format, please try again")
 
         if self.task == 1:
-            asyncio.run(self.imgInit(self))
+            self.imgInit(self)
             self.task1(self)
 
         elif self.task == 2:
-            asyncio.run(self.imgInit(self))
+            self.imgInit(self)
             self.task2(self)
 
         elif self.task == 3:
-            asyncio.run(self.imgInit(self))
+            self.imgInit(self)
             self.task3(self)
 
         else:
@@ -95,8 +93,8 @@ class Task:
             exit(69)
 
 
-async def main():
-    await asyncio.create_task(Task(), debug=not os.environ.get('DEV'))
+def main():
+    Task()
 
 
 if __name__ == '__main__':
@@ -109,5 +107,5 @@ if __name__ == '__main__':
     time.sleep(.8)
     print("Instantiating event loop with C binding for higher performance....")
     time.sleep(.7)
-    asyncio.run(main())
+    main()
     exit(0)
