@@ -11,8 +11,6 @@ def task_master():
 
 class Task:
     # Member variables of the Task object
-    path, task, img = "", "", ""
-
     @staticmethod
     def sAsSyCoMmEnTaRy():
         print("Ready?")
@@ -38,10 +36,10 @@ class Task:
         # Creating coroutine tasks for double inversion
 
         print("Inverting image for the first time...")
-        inv1 = self.negate(self)
+        self.img = self.negate(self)
         print("Finished first inversion!")
         print("Starting second inversion...")
-        inv2 = self.negate(self)
+        self.img = self.negate(self)
         print("Finished second inversion!")
         print("Now displaying image...")
         self.img.open()

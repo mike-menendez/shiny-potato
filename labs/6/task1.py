@@ -1,7 +1,18 @@
-from PIL import Image
-im = Image.open("/Users/casscabrera/Desktop/CST205/download2.jpeg")
-def negative_image(pixel):
-	return tuple(map(lambda a : 255 - a, pixel))
-negative_list = map(negative_image, im.getdata() )
-im.putdata(list(negative_list))
-im.show()
+from PIL import Image, ImageOps
+
+
+print("Enter image path:")
+
+im = Image.open(input().strip())
+
+print("negating image...")
+
+inv1 = ImageOps.invert(im)
+
+inv1.show()
+
+print("double negation...")
+
+inv2 = ImageOps.invert(inv1)
+
+inv2.show()
