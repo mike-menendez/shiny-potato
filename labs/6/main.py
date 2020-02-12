@@ -1,6 +1,6 @@
 import asyncio
 import uvloop
-import PIL
+from PIL import Image, ImageOps
 import os
 import time
 
@@ -24,11 +24,11 @@ class Task:
 
     @staticmethod
     def negate(self):
-        self.img = PIL.ImageOps.invert(self.img)
+        self.img = ImageOps.invert(self.img)
 
     @staticmethod
     def imgInit(self):
-        self.img = PIL.Image.open(self.path)
+        self.img = Image.open(self.path)
         return
 
     # Fulfills task1 of the assignment
