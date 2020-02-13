@@ -1,16 +1,29 @@
-import math
 from PIL import Image
-def color_distance2(c1, c2):
- val = 0
- for i in range(3):
- 	val += math.pow((c1[i]-c2[i]), 2)
- return math.sqrt(val)
+
+"""
+Task 1:
+    - Return a coordinate of a pixel with the highest red value (can be multiple, just return one)
+    - Steps:
+        - Read in image
+        - Traverse Image as if it were a 3D matrix (x, y, 0 (where 0 = red channel in rgb tuple))
+        - Create hashmap to store values based off red value (dynamic programming bruh :fire:)
+        - Get keys from hashmap, reverse sort and display the list of the max value
+"""
 
 
-im = Image.open("/Users/casscabrera/Desktop/bruns.jpg")
-color_to_change = (58, 71, 36)
-# using list comprehension
-new_list = [ (int(p[0]*1.5), int(p[1]*.5), p[2]) for p in 
-im.getdata() if color_distance2(p, color_to_change) ]
-im.putdata(new_list)
-im.show()
+def main():
+    print("Enter file path:")
+    img = Image.open(input().strip(), 'r')
+    mappy = {}
+    for x in img.height:
+        for y in img.width:
+            if img.get_pixel(x, y)[0] in mappy.keys():
+                mappy.get(img.get_pixel(x, y)[0]).append((x, y))
+            else:
+                mappy[(img.get_pixel(x, y)[0])] = [(x, y)]
+
+    print("Coordinates of all pixels with the max red channel: ", mappy.get(mappy.keys().sort().reverse()[0]))
+
+
+if __name__ == "__main__":
+    main()
