@@ -1,5 +1,6 @@
 import seaborn as sns
 import pickle as pk
+import matplotlib.pyplot as plt
 
 
 def read_in():
@@ -43,12 +44,17 @@ def task1():
 
 def task2(m):
     print("Sorted map: ", sorting(m))
+    print("keys: ", m.keys())
+    for key in m.keys():
+        sns.barplot(data=m.get(key), color=key)
+        plt.title(label=key, loc='center')
+        plt.show()
 
 
 def main():
     mappy = task1()
     print("Task 1:", mappy)
-    print(task2(mappy))
+    task2(mappy)
 
 
 if __name__ == "__main__":
