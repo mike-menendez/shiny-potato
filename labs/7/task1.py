@@ -15,14 +15,14 @@ def main():
     print("Enter file path:")
     img = Image.open(input().strip(), 'r')
     mappy = {}
-    for x in img.height:
-        for y in img.width:
-            if img.get_pixel(x, y)[0] in mappy.keys():
-                mappy.get(img.get_pixel(x, y)[0]).append((x, y))
-            else:
-                mappy[(img.get_pixel(x, y)[0])] = [(x, y)]
-
-    print("Coordinates of all pixels with the max red channel: ", mappy.get(mappy.keys().sort().reverse()[0]))
+    maxxR = 0
+    coor = (0,0)
+    for x in range(img.width):
+        for y in range(img.height):
+            if img.getpixel((x,y))[0] > maxxR:
+                maxxR = x
+                coor = (x,y)
+    print("Coordinate of pixel with the max red channel: ", coor)
 
 
 if __name__ == "__main__":
