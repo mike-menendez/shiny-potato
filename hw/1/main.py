@@ -46,7 +46,7 @@ def task2(m):
     print("Sorted map: ", sorting(m))
     print("keys: ", m.keys())
     for key in m.keys():
-        sns.barplot(data=m.get(key), color=key)
+        sns.countplot(data=m.get(key), color=key, x='intensity')
         plt.title(label=key, loc='center')
         plt.show()
 
