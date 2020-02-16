@@ -1,9 +1,15 @@
+'''
+HW1, Task 1
+    - Authors: Cassandra Cabrera, Mike Menendez
+    - Purpose: To read in pixels and bin the colors accordingly.
+'''
 import seaborn as sns
 import pickle as pk
 import matplotlib.pyplot as plt
 
 def read_in():
     print("Enter file path for data source:")
+    #uses pickle to read in .dat file
     return pk.load(open(input().strip(), "rb"))
 
 def task1():
