@@ -25,7 +25,7 @@ def main():
     	for y in range(img1.height):
     		cur_pixel = img1.getpixel((x,y))
     		green = (0, 190, 60)
-    		if distance(cur_pixel, green) < 100:
+    		if distance(cur_pixel, green) < 150:
     			img1.putpixel((x,y), img2.getpixel((x,y)))
 
     img1.show()
