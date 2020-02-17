@@ -28,12 +28,11 @@ def main():
     img1 = Image.open(input().strip(), 'r')
     print("Enter background image path:")
     img2 = Image.open(input().strip(), 'r')
-
+    green = (0, 190, 60)
     for x in range(img1.width):
     	for y in range(img1.height):
     		cur_pixel = img1.getpixel((x,y))
-    		green = (0, 190, 60)
-    		if distance(cur_pixel, green) < 100:
+    		if round(distance(cur_pixel, green)) <= 23:
     			img1.putpixel((x,y), img2.getpixel((x,y)))
 
     img1.show()
