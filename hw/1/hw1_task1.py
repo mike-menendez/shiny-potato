@@ -1,21 +1,16 @@
+'''
+HW1, Task 1
+    - Authors: Cassandra Cabrera, Mike Menendez
+    - Purpose: To read in pixels and bin the colors accordingly.
+'''
 import seaborn as sns
 import pickle as pk
 import matplotlib.pyplot as plt
-# import hist_machine as hp
-
 
 def read_in():
     print("Enter file path for data source:")
+    #uses pickle to read in .dat file
     return pk.load(open(input().strip(), "rb"))
-
-
-def sorting(m):
-    return {
-        "red" : sorted(m.get('red')),
-        "green": sorted(m.get('green')),
-        "blue": sorted(m.get('blue'))
-    }
-
 
 def task1():
     dat = read_in()
@@ -43,19 +38,9 @@ def task1():
     }
 
 
-def task2(m):
-    print("Sorted map: ", sorting(m))
-    print("keys: ", m.keys())
-    for key in m.keys():
-        sns.countplot(data=m.get(key), color=key, x='intensity')
-        plt.title(label=key, loc='center')
-        plt.show()
-
-
 def main():
     mappy = task1()
     print("Task 1:", mappy)
-    task2(mappy)
 
 
 if __name__ == "__main__":
