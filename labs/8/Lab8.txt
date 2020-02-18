@@ -20,9 +20,11 @@ Image class docstring:
 
 ** Task 3 **
 
-Image object attribute:
+Image object attribute: 
+    Image.seek
 
 Description:
+    looks through the file frame by frame, will raise an exception is the end of file is reached. When the file is opened, the seek begins at frame 0.
 
 
 ** Task 4 **
