@@ -1,0 +1,41 @@
+** Task 1 **
+
+Line number: 485
+
+
+** Task 2 **
+
+Image class docstring:
+    """
+    This class represents an image object.  To create
+    :py:class:`~PIL.Image.Image` objects, use the appropriate factory
+    functions.  There's hardly ever any reason to call the Image constructor
+    directly.
+
+    * :py:func:`~PIL.Image.open`
+    * :py:func:`~PIL.Image.new`
+    * :py:func:`~PIL.Image.frombytes`
+    """
+
+
+** Task 3 **
+
+Image object attribute:
+
+Description:
+
+
+** Task 4 **
+
+Python Song class definition:
+class Song:
+	def _init_(self, artist, genre, length, album):
+		self.artist = artist
+		self.genre = genre
+		self.length = length
+		self.album = album
+
+
+Instances of the Song class:
+ready_to_let_go = Song("Cage The Elephant", "Indie Rock", 188, "Ready To Let Go")
+despacito = Song("Luis Fonsi", "Reggaeton", 229, "VIDA")
