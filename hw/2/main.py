@@ -1,6 +1,11 @@
+'''
+Authors: Cassandra Cabrera & Mike Menendez
+Date: February 24, 2020
+Professor: Wes Modes
+'''
 from PIL import Image
-import os 
-# HW: Temporal Processing of Images
+import glob
+# HW 2: Temporal Processing of Images
 # Steps:
 #   - Read in all images
 #   - Create a list for each pixel location
@@ -11,28 +16,28 @@ def generate_res(imgs):
     res = []
 
 def aggregate(imgs):
-    aggr = []
-    tmp = (0, 0, 0)
-    for i in len(imgs):
-        for x in range(i.width):
-            for y in range(i.height):
-                aggr[i].append(i.getpixel(x,y))
-    return aggr
+	pic = Image.new("RGB", (imgs[0].width,imgs[0].height), "white")
+	for x in range(imgs[0].width):
+		for y in range(imgs[0].height):
+			pix = []
+			for i in imgs:
+				pix.append(i.getpixel((x,y)))
 
+			pix.sort()
+			val = int(len(pix)/2)
+			pic.putpixel((x,y), pix[val])
+	pic.save("images/final.png")
+	return pic
 
 def readin():
-    imgs = []
-    for f in os.listdir(input("Please enter path to images").strip()):
-        print("Opening image: ", f)
-        imgs.append(Image.open(f))
-    return imgs
+	imgs = glob.glob("images/*")
+	imgs = [Image.open(image) for image in imgs]
+	return imgs
 
 def main():
     imgs = readin()
-    # imgs = padding(imgs) # this function should create additional padding values of (0, 0, 0) for uniform image shape if we really need it
-    imgs = aggregate(imgs)
-    result = generate_res(imgs)
 
+    aggregate(imgs)
 
 
 if __name__ == "__main__":
