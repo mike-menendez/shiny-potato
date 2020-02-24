@@ -12,9 +12,6 @@ import glob
 #   - Create a new image with largest combined dimensions (largest: x, y)
 #   - Insert the mode value from each list into the new image
 
-def generate_res(imgs):
-    res = []
-
 def aggregate(imgs):
 	pic = Image.new("RGB", (imgs[0].width,imgs[0].height), "white")
 	for x in range(imgs[0].width):
@@ -38,7 +35,6 @@ def main():
     imgs = readin()
 
     aggregate(imgs)
-
 
 if __name__ == "__main__":
     main()
