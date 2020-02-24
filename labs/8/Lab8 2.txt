@@ -1,0 +1,25 @@
+** Task 1 **
+
+Line number:
+
+
+** Task 2 **
+
+Image class docstring:
+
+
+** Task 3 **
+
+Image object attribute:
+
+Description:
+
+
+** Task 4 **
+
+Python Song class definition:
+
+
+
+Instances of the Song class:
+
