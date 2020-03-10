@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+  CST 205 Lab 12
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <h1>Pokemon API <small>CST 205</small></h1>
+
+  {% if data %}
+    {% for thing in data['results'] %}
+      <br>
+      <h3>{{thing['name']}}</h3>
+      <br><br>
+    {% endfor %}
+  {% else %}
+    no data
+  {% endif %}
+
+</div>
+{% endblock %}

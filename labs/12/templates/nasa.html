@@ -1,0 +1,23 @@
+  
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+<div class="container">
+
+  <h1>Nasa from 1999 <small>CST 205</small></h1>
+
+  {% if data %}
+    {% for photo in data %}
+      <br>
+      <h3>{{photo['title']}}</h3>
+      <div><small>{{photo['date']}}</small></div>
+      <div><img src="{{photo['url']}}" alt="" width="300"  class="img-rounded"></div>
+      <p>{{photo['explanation']}}</p>
+      <br><br>
+    {% endfor %}
+  {% else %}
+    no data
+  {% endif %}
+
+</div>
+{% endblock %}
