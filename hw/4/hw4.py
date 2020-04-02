@@ -36,11 +36,11 @@ def get_img(img_id):
         for i in info:
             if i["id"] == img_id:
                 temp = Image.open(i["id"])
-                
+                meta = [temp.format, temp.size]
                 res = {
                     "id": i["id"],
                     "title": i["title"],
-                    "info" : 
+                    "info" : meta
                 }
                 break
         # Image not found, throw exception
