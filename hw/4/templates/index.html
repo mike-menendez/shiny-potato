@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>
-    Home Page! Here are 3 Random images:
-</h1>
-<hr>
-<div class = "container card dflex m-5">
-    <img src = {listy[1]}>
+<div class="jumbotron text-center shadow mb-5">
+    <h1>Home Page! Here are 3 Random images:</h1>
 </div>
+<hr>
+{% for i in listy %}
+    <div class = "container card p-5 text-center mt-5 mb-5">
+        <img src="picture/{{i}}">
+    <button onclick="window.location.href = 'picture/{{i}}'" class="btn justify-content-center">View Image</button>
+</div>
+{% endfor %}

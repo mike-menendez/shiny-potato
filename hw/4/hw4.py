@@ -1,6 +1,10 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-import os, random
+from PIL import Image
+import os, random, pickle
+
+# Read in info from image_info
+info = pickle.loads(open("image_info.py",'rb').read())
 
 # Initalizes flask server with bootstrap4 since can't use mdbootstrap (cst 205 :eye_roll:)
 app = Flask(__name__)
@@ -27,6 +31,25 @@ def index():
 # TODO: Depends on image_info.py from instructor?????
 @app.route('/picture/<img_id>', methods=['GET'])
 def get_img(img_id):
+    res = {}
+    try:
+        for i in info:
+            if i["id"] == img_id:
+                temp = Image.open(i["id"])
+                
+                res = {
+                    "id": i["id"],
+                    "title": i["title"],
+                    "info" : 
+                }
+                break
+        # Image not found, throw exception
+        raise ValueError()
+    except ValueError as v:
+        print("image not found", img_id)
+    except Exception as e:
+        print("issue with indexing on", img_id)
+
     pass
 
 # Start the web server in debug mode
