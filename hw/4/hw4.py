@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from flask_bootstrap import Bootstrap
 from PIL import Image
 import os, random, pickle
@@ -31,26 +31,26 @@ def index():
 # TODO: Depends on image_info.py from instructor?????
 @app.route('/picture/<img_id>', methods=['GET'])
 def get_img(img_id):
-    res = {}
     try:
         for i in info:
             if i["id"] == img_id:
-                temp = Image.open(i["id"])
-                meta = [temp.format, temp.size]
+                temp = Image.open("picture/" + i["id"])
                 res = {
                     "id": i["id"],
                     "title": i["title"],
-                    "info" : meta
+                    "mode": temp.mode,
+                    "width": temp.size[0],
+                    "height": temp.size[1],
+                    "format": temp.format
                 }
                 break
         # Image not found, throw exception
         raise ValueError()
     except ValueError as v:
-        print("image not found", img_id)
+        print("image not found", img_id, v)
     except Exception as e:
-        print("issue with indexing on", img_id)
-
-    pass
+        print("issue with indexing on", img_id, e)
+    return render_template('img.html', info=res, linky=url_for('index'))
 
 # Start the web server in debug mode
 if __name__ == "__main__":
