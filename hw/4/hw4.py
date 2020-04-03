@@ -43,14 +43,15 @@ def get_img(img_id):
                     "height": temp.size[1],
                     "format": temp.format
                 }
-                break
+                return render_template('img.html', info=res, linky=url_for('index'))
+
         # Image not found, throw exception
         raise ValueError()
     except ValueError as v:
         print("image not found", img_id, v)
     except Exception as e:
         print("issue with indexing on", img_id, e)
-    return render_template('img.html', info=res, linky=url_for('index'))
+    exit(1)
 
 # Start the web server in debug mode
 if __name__ == "__main__":
