@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- Title Block -->
-<div class="jumbotron text-center shadow mb-5">
-    <h1 style="font-style: italic;">{{ info["title"] }}</h1><h1> by {{ info["flickr_user"] }}</h1>
-</div>
-<!-- Image card -->
-<div class="container card mt-5">
-    <img class="card-img-top" src="picture/{{ info["id"] }}">
-    <div class="card-body">
-        <p class="card-text">Image Mode: {{ info["mode"] }}, Image Width: {{ info["width"] }}, Image Height: {{ info["height"] }}, Image Format: {{ info["format"] }}</p>
-        <a href="{{ linky }}" class="btn btn-primary">Back to list of images</a>
+    <!-- Title Block -->
+    <div class="jumbotron text-center shadow mb-5">
+        <h1 style="font-style: italic;">{{ info["title"] }}</h1><h1> by {{ info["auth"] }}</h1>
     </div>
-</div>
+    <!-- Image card -->
+    <div class="container card mt-5">
+        <img class="card-img-top" src="{{ info["id"] }}">
+        <div class="card-body">
+            <p class="card-text">Image Mode: {{ info["mode"] }}, Image Width: {{ info["width"] }}, Image Height: {{ info["height"] }}, Image Format: {{ info["format"] }}</p>
+            <a href="{{ linky }}" class="btn btn-primary justify-content-center">Back to list of images</a>
+        </div>
+    </div>
+{% endblock %}

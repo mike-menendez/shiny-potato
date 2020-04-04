@@ -86,11 +86,12 @@ def index():
 def get_img(img_id):
     try:
         for i in info:
-            if i["id"] == img_id:
-                temp = Image.open("picture/" + i["id"])
+            if i["id"] == img_id.split(".")[0]:
+                temp = Image.open("static/picture/" + img_id)
                 res = {
-                    "id": i["id"],
+                    "id": img_id,
                     "title": i["title"],
+                    "auth": i["flickr_user"],
                     "mode": temp.mode,
                     "width": temp.size[0],
                     "height": temp.size[1],
