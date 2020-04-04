@@ -5,11 +5,14 @@
         <h1 style="font-style: italic;">{{ info["title"] }}</h1><h1> by {{ info["auth"] }}</h1>
     </div>
     <!-- Image card -->
-    <div class="container card mt-5">
-        <img class="card-img-top" src="{{ info["id"] }}">
+    <div class="container card mt-5 mb-5 p-5">
+        <img class="card-img-top" src="/static/picture/{{ info["id"] }}">
         <div class="card-body">
-            <p class="card-text">Image Mode: {{ info["mode"] }}, Image Width: {{ info["width"] }}, Image Height: {{ info["height"] }}, Image Format: {{ info["format"] }}</p>
-            <a href="{{ linky }}" class="btn btn-primary justify-content-center">Back to list of images</a>
+            <p class="card-text">Image Mode: {{ info["mode"] }}<br>
+                Image Width: {{ info["width"] }}<br>
+                Image Height: {{ info["height"] }}<br>
+                Image Format: {{ info["format"] }}</p>
+            <button onclick="window.location.href = '{{ linky }}'" class="btn btn-primary justify-content-center mt-5">Back to list of images</button>
         </div>
     </div>
 {% endblock %}
