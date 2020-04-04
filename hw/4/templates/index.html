@@ -5,7 +5,7 @@
     </div>
     {% for i in listy %}
         <div class = "container card p-5 text-center mt-5 mb-5">
-            <img src="static/picture/{{ i }}" style="max-width: 100%; height: auto;">
+            <img src="static/picture/{{ i }}" style="max-width: 100%; height: auto;" class="img-rounded img-responsive">
             <button onclick="window.location.href = 'picture/{{ i }}'" class="btn btn-primary justify-content-center mt-5">View Image</button>
         </div>
     {% endfor %}
