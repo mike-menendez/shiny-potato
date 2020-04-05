@@ -1,3 +1,8 @@
+#Authors: Miek Menendd, Cass Cabrera
+#Date: April 4, 2020
+#Course: CST 205
+#Description: This code will use Flask to generate the pictures that will be displayed.
+
 from flask import Flask, render_template, url_for
 from flask_bootstrap import Bootstrap
 from PIL import Image
